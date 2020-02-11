@@ -17,13 +17,6 @@ class App
     end
   end
 
-  def add_app_attributes(attributes_hash)
-    attributes_hash.each do |attribute, value|
-      self.send("#{attr}=", value)
-    end
-    self
-  end
-
   def self.all
     @@all
   end
