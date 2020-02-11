@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem 'pry'
-gem 'nokogiri', '1.10'
+gem 'nokogiri'
 gem 'rspec'
 
 Pry.start
