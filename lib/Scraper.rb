@@ -4,7 +4,7 @@ require 'open-uri'
 
 
 class Scraper
-  def scrape_index_page(index_url)
+  def scrape_page(index_url)
     index_page = Nokogiri::HTML(open(index_url))
     apps = []
     index_page.each_with_index do |app, index|
@@ -13,7 +13,7 @@ class Scraper
       app_description = app.css("div.b8cIId.f5NCO")[index].text
       apps << {name: app_name, developer: app_developer, description: app_description}
     end
-    puts apps
+    apps
   end
   binding.pry
 end
