@@ -1,6 +1,6 @@
 require 'pry'
 class App
-  attr_accessor :name, :developer, :description, :stars, :rating
+  attr_accessor :name, :developer, :description
 
   @@all = []
 
