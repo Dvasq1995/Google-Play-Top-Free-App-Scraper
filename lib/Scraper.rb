@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class Scraper
-  def scrape_page(index_url)
+  def self.scrape_page(index_url)
     index_page = Nokogiri::HTML(open(index_url).read, nil, 'utf-8')
 
     row = index_page.css('div.Ktdaqe').detect do |e|
