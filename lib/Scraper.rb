@@ -2,18 +2,29 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 
-
 class Scraper
   def scrape_page(index_url)
-    index_page = Nokogiri::HTML(open(index_url))
-    apps = []
-    index_page.each_with_index do |app, index|
-      app_name = app.css("div.WsMG1c.nnK0zc")[index].text
-      app_developer = app.css("div.KoLSrc")[index].text
-      app_description = app.css("div.b8cIId.f5NCO")[index].text
-      apps << {name: app_name, developer: app_developer, description: app_description}
+    index_page = Nokogiri::HTML(open(index_url).read, nil, 'utf-8')
+
+    row = index_page.css('div.Ktdaqe').detect do |e|
+      e.css('h2').text == "Top Free Apps"
     end
-    apps
+    
+    app_elements = row.css('div.WHE7ib.mpg5gc')
+    
+    app_hashes = app_elements.map do |el|
+       app_hash = {}
+       app_hash[:name] = el.css("div.WsMG1c.nnK0zc").text
+       app_hash[:developer] = el.css("a div.KoLSrc").text
+       app_hash[:description] = el.css("div.b8cIId.f5NCO").text
+       app_hash[:url] = el.css('div.b8cIId.ReQCgd.Q9MA7b a').attr('href')
+       app_hash
+    end
+     
+     App.create_from_collection(app_hashes)
   end
-  binding.pry
+  
+  def update(app)
+    app_page = Nokogiri::HTML(open(app.url).read, nil, 'utf-8')
+  end
 end

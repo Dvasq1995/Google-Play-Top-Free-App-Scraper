@@ -1,6 +1,6 @@
 require 'pry'
 class App
-  attr_accessor :name, :developer, :description
+  attr_accessor :name, :developer, :description, :url
 
   @@all = []
 
@@ -15,6 +15,10 @@ class App
     apps_array.each do |app_hash|
       App.new(app_hash)
     end
+  end
+  
+  def update
+    Scraper.new.update(self)  
   end
 
   def self.all
