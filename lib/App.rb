@@ -1,4 +1,3 @@
-require 'pry'
 class App
   attr_accessor :name, :developer, :description, :url
 

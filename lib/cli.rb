@@ -1,4 +1,6 @@
-require 'pry'
+require_relative "../lib/Scraper.rb"
+require_relative "../lib/App.rb"
+require 'nokogiri'
 
 class Command_Line_Interface
   url = "https://play.google.com/store/apps/top?hl=en_US"
@@ -8,7 +10,7 @@ class Command_Line_Interface
   end
   
   def make_apps
-    Scraper.scrape_index_page(url)
+    Scraper.scrape_page(url)
   end
   
   def display_apps
