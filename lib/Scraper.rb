@@ -16,6 +16,7 @@ class Scraper
        app_hash[:developer] = el.css("a div.KoLSrc").text
        app_hash[:description] = el.css("div.b8cIId.f5NCO").text
        app_hash[:url] = el.css('div.b8cIId.ReQCgd.Q9MA7b a').attr('href')
+       app_hash[:long_description] = ''
        app_hash
     end
      
@@ -24,5 +25,8 @@ class Scraper
   
   def update(app)
     app_page = Nokogiri::HTML(open(app.url).read, nil, 'utf-8')
+    app.all.map do |app|
+      app[:long_description] = app_page.css('div.DWPxHb').text
+    end
   end
 end

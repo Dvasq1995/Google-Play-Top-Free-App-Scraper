@@ -1,5 +1,6 @@
+require_relative "../lib/Scraper.rb"
 class App
-  attr_accessor :name, :developer, :description, :url
+  attr_accessor :name, :developer, :description, :url, :long_description
 
   @@all = []
 

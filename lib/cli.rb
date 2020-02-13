@@ -18,7 +18,7 @@ class Command_Line_Interface
   
   def display_apps
     App.all.map.with_index do |app, i|
-      puts "#{i + 1}. #{app.name}\n"
+      puts "#{i + 1}. #{app.name} - #{app.description}\n"
     end
   end
   
@@ -26,6 +26,6 @@ class Command_Line_Interface
     puts "\nSelect app (1-10) to get more information\n"
     input = gets.strip.to_i
     app = App.all[input - 1]
-    puts "\n#{app.name}\nDeveloper: #{app.developer}\nDescription: #{app.description}"
+    puts "\n#{app.name}\nDeveloper: #{app.developer}\nDescription: #{app.long_description}"
   end
 end
