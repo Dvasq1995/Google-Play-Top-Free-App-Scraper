@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To run, type ruby bin/run after cd'ing into the project folder. This must be done after a bundle install command.
 
 ## Development
 
