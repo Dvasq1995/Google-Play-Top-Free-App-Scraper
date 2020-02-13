@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-To run, type ruby bin/run after cd'ing into the project folder. This must be done after a bundle install command.
+To run, type ruby bin/run after cd'ing into the project folder. This must be done after a bundle install command. Select an application by its number to receive a bit more information on a chosen application. New features will be added in the future.
 
 ## Development
 
