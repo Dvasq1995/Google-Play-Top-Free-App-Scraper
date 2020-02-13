@@ -26,6 +26,7 @@ class Command_Line_Interface
     puts "\nSelect app (1-10) to get more information\n"
     input = gets.strip.to_i
     app = App.all[input - 1]
+    app.update
     puts "\n#{app.name}\nDeveloper: #{app.developer}\nDescription: #{app.long_description}"
   end
 end

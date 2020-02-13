@@ -1,6 +1,7 @@
 require 'open-uri'
-
+require 'pry'
 class Scraper
+  BASE_URL = 'https://play.google.com'
   def self.scrape_page(index_url)
     index_page = Nokogiri::HTML(open(index_url).read, nil, 'utf-8')
 
@@ -15,7 +16,7 @@ class Scraper
        app_hash[:name] = el.css("div.WsMG1c.nnK0zc").text
        app_hash[:developer] = el.css("a div.KoLSrc").text
        app_hash[:description] = el.css("div.b8cIId.f5NCO").text
-       app_hash[:url] = el.css('div.b8cIId.ReQCgd.Q9MA7b a').attr('href')
+       app_hash[:url] = BASE_URL + el.css('div.b8cIId.ReQCgd.Q9MA7b a').attr('href').value
        app_hash[:long_description] = ''
        app_hash
     end
@@ -23,10 +24,8 @@ class Scraper
      App.create_from_collection(app_hashes)
   end
   
-  def update(app)
+  def self.update(app)
     app_page = Nokogiri::HTML(open(app.url).read, nil, 'utf-8')
-    app.all.map do |app|
-      app[:long_description] = app_page.css('div.DWPxHb').text
-    end
+      app.long_description = app_page.css('div.DWPxHb').text
   end
 end

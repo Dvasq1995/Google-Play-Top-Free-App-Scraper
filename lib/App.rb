@@ -18,7 +18,7 @@ class App
   end
   
   def update
-    Scraper.new.update(self)  
+    Scraper.update(self)  
   end
 
   def self.all
