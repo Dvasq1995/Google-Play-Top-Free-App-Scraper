@@ -6,8 +6,10 @@ class Command_Line_Interface
   BASE_PATH = "https://play.google.com/store/apps/top?hl=en_US"
   
   def run
+    puts "These are the top 10 Free Google Play Apps:\n"
     make_apps
     display_apps
+    app_info
   end
   
   def make_apps
@@ -18,5 +20,9 @@ class Command_Line_Interface
     App.all.map.with_index do |app, i|
       puts "#{i + 1}. #{app.name}\n"
     end
+  end
+  
+  def app_info
+    puts "Select app (1-10) to get more information\n"
   end
 end
