@@ -27,6 +27,14 @@ class Command_Line_Interface
     input = gets.strip.to_i
     app = App.all[input - 1]
     app.update
-    puts "\n#{app.name}\nDeveloper: #{app.developer}\nDescription: #{app.long_description}"
+    puts "\n#{app.name}\nDeveloper: #{app.developer}\nDescription: #{app.long_description}\n"
+    
+    puts "\nWould you like to check out another app?(Y/N)\n"
+    input = gets.strip.downcase
+    if input == 'y'
+      run
+    else
+      
+    end
   end
 end
