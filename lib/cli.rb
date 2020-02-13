@@ -23,6 +23,9 @@ class Command_Line_Interface
   end
   
   def app_info
-    puts "Select app (1-10) to get more information\n"
+    puts "\nSelect app (1-10) to get more information\n"
+    input = gets.strip.to_i
+    app = App.all[input - 1]
+    puts "\n#{app.name}\nDeveloper: #{app.developer}\nDescription: #{app.description}"
   end
 end
