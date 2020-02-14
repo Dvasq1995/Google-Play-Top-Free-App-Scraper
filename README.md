@@ -1,5 +1,7 @@
 # Google-Play-Top-Free-App-Scraper
 
+A simple Ruby CLI that displays the current top 10 Free Google Play apps and their information.
+
 ## Installation
 
 Add this line to your application's Gemfile:
