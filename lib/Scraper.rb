@@ -1,4 +1,4 @@
-require 'open-uri'
+
 class Scraper
   BASE_URL = 'https://play.google.com'
   def self.scrape_page(index_url)
