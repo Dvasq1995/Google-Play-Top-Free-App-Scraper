@@ -1,6 +1,3 @@
-
-
-
 class Command_Line_Interface
   BASE_PATH = "https://play.google.com/store/apps/top?hl=en_US"
   

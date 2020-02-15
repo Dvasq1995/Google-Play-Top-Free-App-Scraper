@@ -1,4 +1,3 @@
-
 class App
   attr_accessor :name, :developer, :description, :url, :long_description
 
